@@ -3,8 +3,8 @@
 ;; define the function to be attached to form submission event
 (defn validate-form []
   ;; get email and password element from their ids in the HTML form
-  (let [email (.getElementById js/document "email")
-        password (.getElementById js/document "password")]
+  (let [email (by-id "email")
+        password (by-id "password")]
     (if (and (> (count (.-value email)) 0)
              (> (count (.-value password)) 0))
       true
