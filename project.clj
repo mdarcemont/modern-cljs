@@ -28,15 +28,19 @@
   :ring {:handler modern-cljs.core/handler}
 
   ;; cljsbuild tasks configuration
-  :cljsbuild {:builds
-              [{;; clojurescript source code path
-                :source-paths ["src/cljs"]
+  :cljsbuild  {:builds
 
-                ;; Google Closure Compiler options
-                :compiler {;; the name of emitted JS script file
-                           :output-to "resources/public/js/modern.js"
-
-                           ;; minimum optimization
-                           :optimizations :whitespace
-                           ;; prettyfying emitted JS
-                           :pretty-print true}}]})
+   ;; login.js build
+   {:login
+    {:source-paths ["src/cljs/login"]
+     :compiler
+     {:output-to "resources/public/js/login.js"
+      :optimizations :whitespace
+      :pretty-print true}}
+    ;; shopping.js build
+    :shopping
+    {:source-paths ["src/cljs/shopping"]
+     :compiler
+     {:output-to "resources/public/js/shopping.js"
+      :optimizations :whitespace
+      :pretty-print true}}}})
